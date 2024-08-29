@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const numberOfItems = items.length;
     const itemAngle = 360 / numberOfItems;
-    const offsetAngle = 120;
+    const offsetAngle = 55;
     let animation;
     let previousEndDegree = 0;
 

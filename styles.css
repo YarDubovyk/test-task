@@ -63,8 +63,8 @@
     position: absolute;
     width: 28.5vw;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 38%;
+
     max-height: 100%;
     object-fit: contain;
     z-index: 10;
@@ -186,11 +186,6 @@
   }
   
   .wheel {
-    --_items: 6;
-    all: unset;
-    aspect-ratio: 1 / 1;
-    container-type: inline-size;
-    direction: ltr;
     display: grid;
     position: relative;
     width: 39vw;
@@ -199,16 +194,16 @@
     overflow: hidden;
   }
   
-  .wheel > * {
-    position: absolute;
-  }
-  
   .wheel-list {
     all: unset;
     clip-path: inset(0 0 0 0 round 50%);
     display: grid;
     inset: 0;
     place-content: center start;
+    background: url("./assets/images/inner-wheel.png") center center no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
   }
   
   .wheel-main {
@@ -237,94 +232,13 @@
   }
   
   .wheel-segment {
-    align-content: center;
-    aspect-ratio: 1 / calc(2 * tan(180deg / var(--_items)));
-    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-    display: grid;
-    grid-area: 1 / -1;
-    rotate: calc(360deg / var(--_items) * calc(var(--_idx) - 1));
-    transform-origin: center right;
-    user-select: none;
-    width: 50cqi;
-    background: linear-gradient(to right, #070766, #3026a1);
+    opacity: 0;
   }
-  
-  .wheel-segment-numbers {
-    position: absolute;
-    font-size: 3.2vw;
-    transform: rotate(-90deg);
-    background: linear-gradient(180deg, #ebdb82 0%, #ffd998 48.28%, #ffa14a 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: -2.377px;
-    text-transform: uppercase;
-  }
-  
-  .wheel-segment-units {
-    font-size: 1.5vw;
-  }
-  
-  .wheel-segment:nth-child(1) {
-    --_idx: 1;
-    .wheel-segment-numbers {
-      top: 40%;
-      left: 0;
-    }
-  }
-  
-  .wheel-segment:nth-child(2) {
-    --_idx: 2;
-    background: linear-gradient(to right, #2d001e, #830b59);
-    .wheel-segment-numbers {
-      top: 40%;
-      left: 20%;
-    }
-  }
-  
-  .wheel-segment:nth-child(3) {
-    --_idx: 3;
-    .wheel-segment-numbers {
-      top: 35%;
-      left: 15%;
-      line-height: 1;
-      display: flex;
-      flex-direction: column;
-    }
-  }
-  
-  .wheel-segment:nth-child(4) {
-    --_idx: 4;
-    background: linear-gradient(to right, #2d001e, #830b59);
-    .wheel-segment-numbers {
-      top: 40%;
-      left: 20%;
-    }
-  }
-  
-  .wheel-segment:nth-child(5) {
-    --_idx: 5;
-    .wheel-segment-numbers {
-      top: 40%;
-      left: 0%;
-    }
-  }
-  
-  .wheel-segment:nth-child(6) {
-    --_idx: 6;
-    background: linear-gradient(to right, #2d001e, #830b59);
-    .wheel-segment-numbers {
-      top: 40%;
-      left: 20%;
-    }
-  }
-  
-  .wheel-segment.active {
-    background: var(--color-primary);
-  }
-  
+
   @media screen and (max-width: 1366px) {
     .girl-image {
       width: 38.5vw;
+      transform: translateX(-50%);
     }
   }
   
@@ -371,30 +285,6 @@
       height: 70vw;
     }
   
-    .wheel-segment:nth-child(1) .wheel-segment-numbers {
-      left: 10%;
-    }
-  
-    .wheel-segment:nth-child(2) .wheel-segment-numbers {
-      left: 25%;
-    }
-  
-    .wheel-segment:nth-child(3) .wheel-segment-numbers {
-      left: 20%;
-    }
-  
-    .wheel-segment:nth-child(4) .wheel-segment-numbers {
-      left: 25%;
-    }
-  
-    .wheel-segment:nth-child(5) .wheel-segment-numbers {
-      left: 10%;
-    }
-  
-    .wheel-segment:nth-child(6) .wheel-segment-numbers {
-      left: 25%;
-    }
-  
     .popup-content {
       width: 90vw;
       min-height: 400px;
@@ -429,10 +319,7 @@
       width: 70vw;
       height: 70vw;
     }
-  
-    .wheel-segment-units {
-      font-size: 16px;
-    }
+
   }
   
   @media screen and (max-width: 767px) {
@@ -507,39 +394,7 @@
       width: 28vw;
       font-size: 16px;
     }
-  
-    .wheel-segment-numbers {
-      font-size: 26px;
-    }
-  
-    .wheel-segment-units {
-      font-size: 12.5px;
-    }
-  
-    .wheel-segment:nth-child(1) .wheel-segment-numbers {
-      left: 10%;
-    }
-  
-    .wheel-segment:nth-child(2) .wheel-segment-numbers {
-      left: 25%;
-    }
-  
-    .wheel-segment:nth-child(3) .wheel-segment-numbers {
-      left: 20%;
-    }
-  
-    .wheel-segment:nth-child(4) .wheel-segment-numbers {
-      left: 25%;
-    }
-  
-    .wheel-segment:nth-child(5) .wheel-segment-numbers {
-      left: 10%;
-    }
-  
-    .wheel-segment:nth-child(6) .wheel-segment-numbers {
-      left: 25%;
-    }
-  
+
     .button {
       margin-top: 5px;
     }
@@ -549,5 +404,3 @@
     }
   }
 
-
-  

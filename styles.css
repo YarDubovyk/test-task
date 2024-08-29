@@ -80,7 +80,7 @@
     background-size: cover;
     font-size: 2.5vw;
     text-transform: uppercase;
-    z-index: 1;
+    z-index: 11;
   }
   
   .button:hover {

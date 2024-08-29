@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  //wheel
   function wheelOfFortune(selector) {
     const node = document.querySelector(selector);
     if (!node) return;
@@ -31,6 +30,27 @@ document.addEventListener("DOMContentLoaded", () => {
       { number: "70", units: " Ip", isJackpot: false },
     ];
 
+    function showPopup(sector) {
+      popupOverlay.style.display = "flex";
+      if (sector.isJackpot) {
+        popupRegular.style.display = "none";
+        popupJackpot.style.display = "flex";
+      } else {
+        popupJackpot.style.display = "none";
+        popupRegular.style.display = "flex";
+      }
+      if (popupNumberElement) {
+        popupNumberElement.textContent = sector.number;
+      }
+      if (popupUnitsElement) {
+        popupUnitsElement.textContent = sector.units;
+      }
+    }
+
+    function hidePopup() {
+      popupOverlay.style.display = "none";
+    }
+
     spinButtons.forEach((spinButton) => {
       spinButton.addEventListener("click", () => {
         if (animation) {
@@ -58,45 +78,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
         animation.onfinish = () => {
           const finalDegree = newEndDegree % 360;
-
           const winningIndex = Math.floor(
             ((360 - finalDegree + offsetAngle) % 360) / itemAngle
           );
-
           items[winningIndex].classList.add("active");
-
-          const sector = sectorData[winningIndex];
-          if (popupNumberElement) {
-            popupNumberElement.textContent = sector.number;
-          }
-          if (popupUnitsElement) {
-            popupUnitsElement.textContent = sector.units;
-          }
-
-          popupOverlay.style.display = "flex";
-          if (sector.isJackpot) {
-            popupRegular.style.display = "none";
-            popupJackpot.style.display = "flex";
-          } else {
-            popupJackpot.style.display = "none";
-            popupRegular.style.display = "flex";
-          }
+          showPopup(sectorData[winningIndex]);
+          previousEndDegree = newEndDegree;
         };
-
-        previousEndDegree = newEndDegree;
       });
     });
 
     popupOverlay.addEventListener("click", (event) => {
       if (event.target === popupOverlay) {
-        popupOverlay.style.display = "none";
+        hidePopup();
       }
     });
 
     closePopupButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        popupOverlay.style.display = "none";
-      });
+      button.addEventListener("click", hidePopup);
     });
   }
 

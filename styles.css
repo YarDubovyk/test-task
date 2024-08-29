@@ -227,8 +227,8 @@
     border-radius: 50%;
     cursor: pointer;
     place-self: center;
-    width: 12vw;
-    border-radius: 278.159px;
+    width: 12.5vw;
+    border-radius: 50%;
     background: var(--color-primary);
     box-shadow: 0px 0px 20px 6px var(--color-primary);
     color: var(--color-secondary);
@@ -548,3 +548,6 @@
       background: var(--popup-mobile-bg) center center no-repeat;
     }
   }
+
+
+  

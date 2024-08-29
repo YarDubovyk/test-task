@@ -6,59 +6,67 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(`./assets/translations/${lang}.json`)
     .then((response) => response.json())
     .then((translations) => {
-      const titleElement = document.querySelector(".title");
-      const spinButtonElement = document.querySelector(".spin-button");
-      const buttonElement = document.querySelector(".button");
-      const popupRegularTitleElement = document.querySelector(
-        "#popup-regular .popup-title"
+      const elements = {
+        title: document.querySelector(".title"),
+        spinButton: document.querySelector(".spin-button"),
+        button: document.querySelector(".button"),
+        popupRegularTitle: document.querySelector(
+          "#popup-regular .popup-title"
+        ),
+        popupRegularButton: document.querySelector(
+          "#popup-regular .popup-button"
+        ),
+        popupJackpotTitle: document.querySelector(
+          "#popup-jackpot .popup-title"
+        ),
+        popupJackpotDescription: document.querySelector(
+          "#popup-jackpot .popup-description-subtitle"
+        ),
+        popupJackpotDescription1: document.querySelector(
+          "#popup-jackpot .popup-description-bonus-1"
+        ),
+        popupJackpotDescription2: document.querySelector(
+          "#popup-jackpot .popup-description-bonus-2"
+        ),
+        popupJackpotButton: document.querySelector(
+          "#popup-jackpot .popup-button"
+        ),
+      };
+
+      const setTextContent = (element, text) => {
+        if (element) {
+          element.textContent = text;
+        }
+      };
+
+      elements.title.innerHTML = translations.title.replace(/\n/g, "<br>");
+      setTextContent(elements.spinButton, translations.spinButton);
+      setTextContent(elements.button, translations.button);
+      setTextContent(elements.popupRegularTitle, translations.popupTitle);
+      setTextContent(
+        elements.popupRegularButton,
+        translations.popupRegularButton
       );
-
-      const popupRegularButton = document.querySelector(
-        "#popup-regular .popup-button"
+      setTextContent(
+        elements.popupJackpotTitle,
+        translations.popupJackpotTitle
       );
-
-      const popupJackpotTitleElement = document.querySelector(
-        "#popup-jackpot .popup-title"
+      setTextContent(
+        elements.popupJackpotDescription,
+        translations.popupJackpotDescription
       );
-
-      const popupJackpotDescriptionElement = document.querySelector(
-        "#popup-jackpot .popup-description-subtitle"
+      setTextContent(
+        elements.popupJackpotDescription1,
+        translations.popupNumberBonusDescription
       );
-
-      const popupJackpotDescription1Element = document.querySelector(
-        "#popup-jackpot .popup-description-bonus-1"
+      setTextContent(
+        elements.popupJackpotDescription2,
+        translations.popupNumberBonus2Description
       );
-
-      const popupJackpotDescription2Element = document.querySelector(
-        "#popup-jackpot .popup-description-bonus-2"
+      setTextContent(
+        elements.popupJackpotButton,
+        translations.popupJackpotButton
       );
-
-      const popupJackpotButton = document.querySelector(
-        "#popup-jackpot .popup-button"
-      );
-
-      titleElement.innerHTML = translations.title.replace(/\n/g, "<br>");
-
-      spinButtonElement.textContent = translations.spinButton;
-
-      buttonElement.textContent = translations.button;
-
-      popupRegularTitleElement.textContent = translations.popupTitle;
-
-      popupJackpotTitleElement.textContent = translations.popupJackpotTitle;
-
-      popupJackpotDescriptionElement.textContent =
-        translations.popupJackpotDescription;
-
-      popupJackpotDescription1Element.textContent =
-        translations.popupNumberBonusDescription;
-
-      popupJackpotDescription2Element.textContent =
-        translations.popupNumberBonus2Description;
-
-      popupJackpotButton.textContent = translations.popupJackpotButton;
-
-      popupRegularButton.textContent = translations.popupRegularButton;
     })
     .catch((error) => console.error("Error loading translations:", error));
 });

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="wrapper">
+      <h1 class="title">
+        Pörgesd <br />
+        a kereket<br />
+        - kapj <br />bónuszokat
+      </h1>
+
+      <picture>
+        <source
+          srcset="./assets/images/girl-mobile.webp"
+          type="image/webp"
+          media="(max-width: 600px)"
+        />
+        <source
+          srcset="./assets/images/girl-mobile.png"
+          type="image/jpeg"
+          media="(max-width: 600px)"
+        />
+        <source srcset="./assets/images/girl.webp" type="image/webp" />
+        <source srcset="./assets/images/girl.png" type="image/jpeg" />
+        <img class="girl-image" src="./assets/images/girl.png" alt="girl" />
+      </picture>
+
+      <div class="wheel-wrapper">
+        <div class="wheel-inner">
+          <div class="wheel-main">
+            <button
+              type="button"
+              class="spin-button spin-wheel"
+              style="z-index: 11"
+            >
+              Pörgetni
+            </button>
+          </div>
+
+          <div class="wheel">
+            <ul class="wheel-list">
+              <li class="wheel-segment">
+                <span class="wheel-segment-numbers"
+                  >50 000 <span class="wheel-segment-units">ft</span></span
+                >
+              </li>
+              <li class="wheel-segment">
+                <span class="wheel-segment-numbers">
+                  30 <span class="wheel-segment-units">ip</span></span
+                >
+              </li>
+              <li class="wheel-segment">
+                <span class="wheel-segment-numbers">
+                  <span> 1600 <span class="wheel-segment-units">if</span></span>
+                  <span
+                    >+100 <span class="wheel-segment-units">ip</span></span
+                  ></span
+                >
+              </li>
+
+              <li class="wheel-segment">
+                <span class="wheel-segment-numbers"
+                  >50 <span class="wheel-segment-units">ip</span></span
+                >
+              </li>
+              <li class="wheel-segment">
+                <span class="wheel-segment-numbers"
+                  >30 000 <span class="wheel-segment-units">ft</span></span
+                >
+              </li>
+              <li class="wheel-segment">
+                <span class="wheel-segment-numbers"
+                  >70 <span class="wheel-segment-units">ip</span></span
+                >
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="button spin-button-main">
+            Pörgetni
+          </button>
+        </div>
+      </div>
+
+      <div class="popup-overlay" id="popup-overlay">
+        <div class="popup" id="popup-jackpot">
+          <div class="popup-content jackpot">
+            <h2 class="popup-title">Üdvözlő BÓNUSZ</h2>
+            <h2 class="popup-description popup-description-subtitle">
+              minimális letét 7 500 Ft-tól
+            </h2>
+            <p class="popup-number">
+              50 000<span class="popup-units">Ft</span>
+            </p>
+            <p class="popup-number-bonus">
+              + 100
+              <span class="popup-description popup-description-bonus-1"
+                >INGYENES PÖRGETÉS</span
+              >
+            </p>
+            <p class="popup-number-bonus">
+              +1 600
+              <span class="popup-description popup-description-bonus-2"
+                >INGYENES PÖRGETÉS</span
+              >
+            </p>
+          </div>
+          <button type="button" class="button popup-button popup-close">
+            Elvenni
+          </button>
+        </div>
+        <div class="popup" id="popup-regular">
+          <div class="popup-content">
+            <h2 class="popup-title">Nyertél!</h2>
+            <div class="popup-text">
+              <p class="popup-number" id="popup-number-regular">50 000</p>
+              <span class="popup-units" id="popup-units-regular"> Ft</span>
+            </div>
+          </div>
+          <button class="button popup-button popup-close">Pörgetni</button>
+        </div>
+      </div>
+    </main>
+    <script src="./index.js"></script>
+    <script src="./translations.js"></script>
+  </body>
+</html>
